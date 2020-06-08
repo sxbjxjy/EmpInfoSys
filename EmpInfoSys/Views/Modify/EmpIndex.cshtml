@@ -1,0 +1,98 @@
+﻿
+@model EmpInfoSys.Models.Emp
+
+
+@{
+    ViewBag.Title = "社員更新";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>社員更新</title>
+</head>
+<body>
+    <h2>社員更新</h2>
+    <p>以下の項目を入力してください。</p>
+    @Html.ValidationSummary()
+    @using (@Html.BeginForm("EmpModify", "Modify", FormMethod.Post))
+    {
+        <table border="1">
+            <tr><td>社員ID</td><td>@Html.DisplayFor(model => model.EmpId)</td></tr>
+            <tr><td>名前</td><td>@Html.TextBoxFor(model => model.Name)<br>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</td></tr>
+            <tr><td>誕生日</td><td>@Html.EditorFor(model => model.BirthDay)<br>@Html.ValidationMessageFor(model => model.BirthDay, "", new { @class = "text-danger" })</td></tr>
+            <tr><td>部門</td><td>@Html.DropDownListFor(model => model.DeptId, new SelectList(Model.DeptItems, "Value", "Text"))</td></tr>
+        </table>
+        @Html.HiddenFor(model => model.EmpId)<br>
+        <input type="submit" value="更新" />
+    }
+</body>
+</html>
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({
+                dateFormat: "yy/mm/dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0",
+                monthNamesShort: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+                //dayNamesShort: ["日", "月", "火", "水", "木", "金", "土"],
+
+                beforeShow: function (input, inst) {
+                    var rect = input.getBoundingClientRect();
+                    setTimeout(function () {
+                        inst.dpDiv.css({ top: rect.top - 50, left: rect.right + 10 });
+                    }, 0);
+                }
+            });
+        });
+    </script>
+}
+
+
+@*<!DOCTYPE html>
+
+    <html lang="ja">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>社員更新</title>
+    </head>
+    <body>
+        <h2>社員更新</h2>
+        <p>以下の項目を入力してください。</p>
+        @Html.ValidationSummary()
+        @using (@Html.BeginForm("EmpModify", "Modify", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmpId)
+                <div>@Html.DisplayFor(model => model.EmpId, new { htmlAttributes = new { @class = "form-control" } })</div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                <div>@Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })</div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.BirthDay)
+                <div>@Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "form-control" } })</div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Dept.DeptName)
+                <div>@Html.DropDownListFor(model => model.DeptId, new SelectList(Model.DeptItems, "Value", "Text"))</div>
+            </div>
+            @Html.HiddenFor(model => model.EmpId)<br>
+            <input type="submit" value="更新" />
+        }
+    </body>
+    </html>*@

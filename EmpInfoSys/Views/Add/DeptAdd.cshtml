@@ -1,0 +1,25 @@
+﻿
+@model EmpInfoSys.Models.Dept
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>部門登録</title>
+</head>
+<body>
+    <h2>部門登録</h2>
+    <p>以下の内容で登録されました。</p>
+    <table border="1">
+        <tr><td>@Html.LabelFor(model => model.DeptId)</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+        <tr><td>@Html.LabelFor(model => model.DeptName)</td><td>@Html.DisplayFor(model => model.DeptName)</td></tr>
+        <tr><td>@Html.LabelFor(model => model.Address)</td><td>@Html.DisplayFor(model => model.Address)</td></tr>
+        <tr><td>@Html.LabelFor(model => model.Tel)</td><td>@Html.DisplayFor(model => model.Tel)</td></tr>
+    </table>  
+</body>
+</html>

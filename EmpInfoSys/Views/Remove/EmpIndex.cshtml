@@ -1,0 +1,33 @@
+﻿
+@model EmpInfoSys.Models.Emp
+
+@{
+    ViewBag.Title = "EmpIndex";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>社員削除</title>
+</head>
+<body>
+    <h2>社員削除</h2>
+    <p>以下の社員情報を削除してよろしいですか？</p>
+
+    @using (Html.BeginForm("EmpRemove", "Remove", FormMethod.Post))
+    {
+        <table border="1">
+            <tr><td>社員ID</td><td>@Html.DisplayFor(model => model.EmpId)</td></tr>
+            <tr><td>名前</td><td>@Html.DisplayFor(model => model.Name)</td></tr>
+            <tr><td>誕生日</td><td>@Html.DisplayFor(model => model.BirthDay)</td></tr>
+            <tr><td>部門ID</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+            <tr><td>部門</td><td>@Html.DisplayFor(model => model.Dept.DeptName)</td></tr>
+        </table><br>
+        @Html.HiddenFor(model => model.EmpId)
+        <br><input type="submit" value="削除" />
+    }
+</body>
+</html>

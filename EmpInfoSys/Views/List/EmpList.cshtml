@@ -1,0 +1,22 @@
+﻿@model IEnumerable<EmpInfoSys.Models.Emp>
+
+
+@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+
+<h2>社員一覧</h2>
+<table border="1">
+    <tr><th></th><th>社員ID</th><th>名前</th><th>誕生日</th><th>部門ID</th></tr>
+    @foreach (var list in Model)
+    {
+        <tr>
+            <th>@Html.ActionLink("詳細", "Detail", "EmpDetail", new { id = list.EmpId }, null)</th>
+            <td>@Html.DisplayFor(model => list.EmpId)</td>
+            <td>@Html.DisplayFor(model => list.Name)</td>
+            <td>@Html.DisplayFor(model => list.BirthDay)</td>
+            <td>@Html.DisplayFor(model => list.DeptId)</td>
+        </tr>
+    }
+</table>

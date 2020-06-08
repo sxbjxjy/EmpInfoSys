@@ -1,0 +1,29 @@
+﻿
+@model EmpInfoSys.Models.Dept
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>部門登録</title>
+</head>
+<body>
+    <h2>部門登録</h2>
+    <p>以下の項目を入力してください。</p>
+    @using (@Html.BeginForm("DeptAdd", "Add", FormMethod.Post))
+    {
+        <table border="1">
+            <tr><td>@Html.LabelFor(model => model.DeptName)</td><td>@Html.TextBoxFor(model => model.DeptName)</td></tr>
+            <tr><td>@Html.LabelFor(model => model.Address)</td><td>@Html.TextBoxFor(model => model.Address)</td></tr>
+            <tr><td>@Html.LabelFor(model => model.Tel)</td><td>@Html.TextBoxFor(model => model.Tel)</td></tr>
+        </table><br />
+        <input type="submit" value="新規登録"/>
+    }
+
+</body>
+</html>

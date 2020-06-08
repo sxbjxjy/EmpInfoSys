@@ -1,0 +1,27 @@
+﻿
+@model EmpInfoSys.Models.Emp
+@{
+    ViewBag.Title = "EmpModify";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>社員更新</title>
+</head>
+<body>
+    <h2>社員更新</h2>
+    <p>以下の内容で更新されました。</p>
+    <table border="1">
+        <tr><td>社員ID</td><td>@Html.DisplayFor(model => model.EmpId)</td></tr>
+        <tr><td>名前</td><td>@Html.DisplayFor(model => model.Name)</td></tr>
+        <tr><td>誕生日</td><td>@Html.DisplayFor(model => model.BirthDay)</td></tr>
+        <tr><td>部門ID</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+        <tr><td>部門</td><td>@Html.DisplayFor(model => model.Dept.DeptName)</td></tr>
+    </table><br>
+    @Html.ActionLink("社員一覧へ", "EmpList", "List")
+</body>
+</html>

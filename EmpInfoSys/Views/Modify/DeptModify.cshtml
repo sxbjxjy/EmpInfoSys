@@ -1,0 +1,27 @@
+﻿
+@model EmpInfoSys.Models.Dept
+
+@{
+    ViewBag.Title = "DeptModify";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>部門更新</title>
+</head>
+<body>
+    <h2>部門更新</h2>
+    <p>以下の内容で更新されました。</p>
+    <table border="1">
+        <tr><td>部門ID</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+        <tr><td>部門名</td><td>@Html.DisplayFor(model => model.DeptName)</td></tr>
+        <tr><td>住所</td><td>@Html.DisplayFor(model => model.Address)</td></tr>
+        <tr><td>電話番号</td><td>@Html.DisplayFor(model => model.Tel)</td></tr>
+    </table><br>
+    @Html.ActionLink("部門一覧へ", "DeptList", "List")
+</body>
+</html>

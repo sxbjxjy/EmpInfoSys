@@ -1,0 +1,33 @@
+﻿
+@model EmpInfoSys.Models.Dept
+
+@{
+    ViewBag.Title = "DeptIndex";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>部門削除</title>
+</head>
+<body>
+    <h2>部門削除</h2>
+    <p>以下の部門情報を削除してよろしいですか？</p>
+
+    @using (Html.BeginForm("DeptRemove", "Remove", FormMethod.Post))
+    {
+        <table border="1">
+            <tr><td>部門ID</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+            <tr><td>部門名</td><td>@Html.DisplayFor(model => model.DeptName)</td></tr>
+            <tr><td>住所</td><td>@Html.DisplayFor(model => model.Address)</td></tr>
+            <tr><td>電話番号</td><td>@Html.DisplayFor(model => model.Tel)</td></tr>
+        </table><br>
+        <label>パスワード</label>
+        @Html.HiddenFor(model => model.DeptId)
+        <br><input type="submit" value="削除" />
+    }
+</body>
+</html>

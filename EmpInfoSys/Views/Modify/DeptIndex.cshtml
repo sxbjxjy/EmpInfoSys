@@ -1,0 +1,33 @@
+﻿
+@model EmpInfoSys.Models.Dept
+
+@{
+    ViewBag.Title = "DeptIndex";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>部門更新</title>
+</head>
+<body>
+    <h2>部門更新</h2>
+    <p>以下の項目を入力してください。</p>
+    @Html.ValidationSummary()
+    @using (@Html.BeginForm("DeptModify", "Modify", FormMethod.Post))
+    {
+        <table border="1">
+            <tr><td>部門ID</td><td>@Html.DisplayFor(model => model.DeptId)</td></tr>
+            <tr><td>部門名</td><td>@Html.TextBoxFor(model => model.DeptName)@Html.ValidationMessageFor(model => model.DeptName, "", new { @class = "text-danger" })</td></tr>
+            <tr><td>住所</td><td>@Html.TextBoxFor(model => model.Address)@Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })</td></tr>
+            <tr><td>電話番号</td><td>@Html.TextBoxFor(model => model.Tel)@Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })</td></tr>
+        </table><br>
+        
+        @Html.HiddenFor(model => model.DeptId)
+        <input type="submit" value="更新" />
+    }
+</body>
+</html>
