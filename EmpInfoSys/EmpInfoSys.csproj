@@ -135,6 +135,7 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\ModifyController.cs" />
     <Compile Include="Controllers\RemoveController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -379,6 +380,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Detail\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
